@@ -1,53 +1,66 @@
-
-/* .container {
-  width: 100%;
-  height: 260px;
+/* layout styles*/
+.container {
   padding: 20px;
 }
 
-.controls {
+.controls{
   display: flex;
-} */
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.flex-container {
+  flex-wrap: wrap;
+}
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(5, 100px);
-  grid-gap: 10px;
-  height: 100px;
-  width: 70px;
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   border: 1px solid black;
 }
 
-/* .card {
-  display: block;
-  background-color: blue;
-  margin: 10px solid black;
-  color: white;
-  border: 2px solid black;
-  width: 200px;
-  height: 250px;
+.card-wrapper {
+  width: 100px;
+  height: 130px;
+  margin: 20px 0;
+  perspective: 300px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-} */
+  cursor: pointer;
+}
 
-/* .card div {
+.front, .back {
+  position: absolute;
   height: 100%;
   width: 100%;
-  line-height: 260px;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 140px;
   backface-visibility: hidden;
+  align-content: center;
 }
 
-.card .front {
+.flipped {
   transform: rotateY( 180deg );
 }
-.card .back {
+
+.back {
   transform: rotateY( 180deg );
 }
 
 img {
-  width: 160px;
-} */
+
+  max-width: 100%;
+  background-size: cover;
+  padding: 2px;
+} 
+
+
+
+
+

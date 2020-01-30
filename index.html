@@ -5,25 +5,271 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Memory Game</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/e8eedf9c5d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  
   <section class="container">
     <div class="controls">
       <button id="newGame">New Game</button>
       <div class="score" id="yourScore">Your Score: 0</div>
-      <div class="score" id="hiScore">Hi Score: 0</div>
+      <div class="score" id="bestScore">Best Score: 0</div>
     </div>
-    
-    <div class="wrapper">
-
-    </div>
-
   </section>
 
+  <div class="flex-container" id="game">
+    <div class="row">
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/colt.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/barley.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/frank.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/carl.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/gene.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end row-->
+    <div class="row">
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/mortis.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/rico.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/pam.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/darryl.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/spike.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end row-->
+    <div class="row">
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/colt.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/barley.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/frank.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/carl.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/gene.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end row-->
+    <div class="row">
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/mortis.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/rico.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/pam.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/darryl.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="front">
+              <img src="img/brawlstars_wings.png" alt="Brawlstars Emblem">
+            </div>
+            <div class="back">
+              <img src="img/spike.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end row-->
+  </div> <!-- end div-container -->
   <script src="app.js"></script>
 </body>
 </html>

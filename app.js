@@ -1,88 +1,89 @@
-const fa_array = [fa-bitcoin, 
-                  fa-dollar-sign, 
-                  fa-ethereum, 
-                  fa-euro-sign, 
-                  fa-pound-sign, 
-                  fa-ruble-sign,
-                  fa-rupee-sign, 
-                  fa-won-sign, 
-                  fa-yen-sign, 
-                  fa-lira-sign]
+document.addEventListener("DOMContentLoaded", function(){
+  
+  const deck = document.querySelectorAll(".card");
+  let numCards = deck.length;
+  const yourScore = document.querySelector("#yourScore");
+  const bestScore = document.querySelector("#bestScore");
+  const cards = document.querySelectorAll(".card");
+  const lowScore = localStorage.getItem("lowScore");
+
+  let cardOne, cardTwo = null;
+  let currentScore = 0;
+  let cardsFlipped = 0;
 
 
-const yourScore = document.querySelector("#yourScore");
-let cardsFlipped = 0;
 
-// commented to check event delegation
-const cards = document.querySelectorAll(".card");
+  for(let card of cards){
+    card.addEventListener('click', cardClick);
+  }
 
-for(let card of cards){
-  card.addEventListener('click', flip);
-}
+  const newGameBtn = document.querySelector("button");
+  newGameBtn.addEventListener("click", newGame);
 
-const newGameBtn = document.querySelector("button");
-newGameBtn.addEventListener("click", newGame);
-let divCount = 0
+// **********  functions  **********
 
-function newGame(){
-  yourScore.innerText = `Your Score: 0`
-  createCard()
-};
+  function newGame(){
+    cardsFlipped = 0;
+    currentScore = 0;
+    yourScore.innerText = `Your Score: ${currentScore}`;
+    for(let card of deck){
+      card.classList.remove('flipped');
+    }
+    shuffle()
+  };
 
-const wrapper = document.querySelector(".wrapper");
 
-const newCard = document.createElement("div");
-const cardFront = document.createElement("div");
-const cardBack = document.createElement("div");
+  function keepScore(score){
+    currentScore += score;
+    yourScore.innerText = `Your Score: ${currentScore}`;
+  }
 
-// const imgFront = document.createElement("img");
-// imgFront.src = "img/brawlstars_wings.png"
-const imgBack = document.createElement("img")
-imgBack.src = "img/colt.png"
+  function shuffle(){
+    const cardPicker = Math.floor(Math.random() * 11);
+    console.log(cardPicker);
+  }
 
-// wrapper.addEventListener("click", function(e){
-//   if(e.target.className === "front"){
-//     flip()
-//   }
-// })
+  function cardClick(e){
+    if(!e.target.classList.contains("front")){
+      return;
+    }
+    let currentCard = e.target.parentElement
+    
+    if(!cardOne || !cardTwo){
+      if(!currentCard.classList.contains('flipped')){
+        keepScore(1)
+      }
+      currentCard.classList.add('flipped')
+      cardOne = cardOne || currentCard;
+      cardTwo = currentCard === cardOne ? null : currentCard;
+    }
 
-// *************UNCOMMENT HERE**************
-function flip(){
-  this.classList.toggle('flipped')
-  cardsFlipped++;
-  yourScore.innerText = `Your Score: ${cardsFlipped}`
-  console.log("You clicked the card")
-};
+    if(cardOne && cardTwo){
+      let picOne = cardOne.children[1].children[0].src;
+      let picTwo = cardTwo.children[1].children[0].src;
 
-function createCard(){
-  divCount++;
-  cardFront.innerText = `${divCount}`
-  newCard.classList.add("card")
-  cardFront.classList.add("front")
+      if(picOne === picTwo){
+        keepScore(2);
+        cardOne.removeEventListener("click", cardClick);
+        cardTwo.removeEventListener("click", cardClick);
+        cardOne = null;
+        cardTwo = null;
+      } else {
+        setTimeout(function(){
+          cardOne.classList.remove('flipped');
+          cardTwo.classList.remove('flipped');
+          cardOne = null;
+          cardTwo = null;
+        }, 1000);
+      }
+    }
+  }
 
-  cardBack.classList.add("back")
+  //work on score function, adds 3 when a match is made
+  //work on shuffle functionality
+  //work on end game localStorage solution
 
-  // cardFront.appendChild(imgFront)
-  newCard.append(cardFront);
-  newCard.append(cardBack);
-  cardBack.appendChild(imgBack);
+})
 
-  wrapper.appendChild(newCard);
-  console.log(wrapper)
-}
 
-// *******************  ON-LOAD LOGIC  **********************
-// loop through list of images and with each image, call createCard 
-// with the image passed as a parameter to create the back of a card
-
-// function compareCards(){
-//   if first card image is not equal to second card image), 
-//   setTimeout(flip 1000)
-//   else
-// }
-
-// function shuffle(){
-//   const cardPicker = Math.floor(Math.random() * 11);
-//   console.log(cardPicker);
-// }
 
